@@ -1,6 +1,7 @@
 {
   "hosting": {
-    "public": "y",
+    "site": "dockvault",
+    "public": "build",
     "ignore": [
       "firebase.json",
       "**/.*",
