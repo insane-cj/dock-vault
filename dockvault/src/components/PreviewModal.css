@@ -1,0 +1,65 @@
+.modal-backdrop {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.55);
+  z-index: 1000; display: flex; align-items: center;
+  justify-content: center; padding: 1rem;
+  animation: fadeIn 0.15s ease;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.modal-box {
+  background: var(--bg-surface); border-radius: var(--radius-xl);
+  width: 100%; max-width: 900px; max-height: 90vh;
+  display: flex; flex-direction: column;
+  border: 1px solid var(--border-md);
+  animation: slideUp 0.2s ease;
+  overflow: hidden;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(16px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-header {
+  padding: 0.875rem 1.125rem;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 12px;
+}
+
+.modal-title-wrap { flex: 1; min-width: 0; }
+.modal-filename {
+  font-size: 14px; font-weight: 500;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+
+.modal-actions {
+  display: flex; align-items: center; gap: 8px; flex-shrink: 0;
+}
+
+.modal-close {
+  width: 30px; height: 30px; border-radius: var(--radius-sm);
+  background: none; border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; color: var(--text-secondary);
+  transition: background 0.12s;
+}
+.modal-close:hover { background: var(--bg-muted); }
+.modal-close .ti { font-size: 15px; }
+
+.modal-body { flex: 1; overflow: hidden; display: flex; flex-direction: column; min-height: 0; }
+
+.preview-frame { width: 100%; flex: 1; border: none; min-height: 500px; }
+
+.preview-fallback {
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; gap: 1rem; padding: 4rem 2rem;
+  color: var(--text-secondary);
+}
+.preview-fallback .ti { font-size: 44px; color: var(--text-tertiary); }
+.preview-fallback p { font-size: 14px; }
+
+@media (max-width: 600px) {
+  .modal-box { max-height: 95vh; border-radius: var(--radius-lg); }
+  .preview-frame { min-height: 350px; }
+}

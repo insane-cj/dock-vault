@@ -1,0 +1,120 @@
+/* ── Button ── */
+.btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-weight: 500; border-radius: var(--radius-md); border: 1px solid transparent;
+  cursor: pointer; transition: background 0.15s, border-color 0.15s, color 0.15s, transform 0.1s;
+  white-space: nowrap;
+}
+.btn:active { transform: scale(0.97); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn .ti { font-size: 15px; }
+
+.btn-md  { padding: 8px 16px; font-size: 13px; }
+.btn-sm  { padding: 5px 12px; font-size: 12px; }
+.btn-lg  { padding: 11px 22px; font-size: 14px; }
+
+.btn-primary   { background: var(--blue-600); color: #fff; }
+.btn-primary:hover { background: var(--blue-800); }
+.btn-primary:disabled { background: var(--blue-600); }
+
+.btn-default   { background: var(--bg-surface); color: var(--text-secondary); border-color: var(--border-md); }
+.btn-default:hover { background: var(--bg-muted); }
+
+.btn-danger    { background: transparent; color: var(--red-600); border-color: #F09595; }
+.btn-danger:hover { background: var(--red-50); }
+
+.btn-ghost     { background: transparent; color: var(--text-secondary); }
+.btn-ghost:hover { background: var(--bg-muted); }
+
+/* ── Icon Button ── */
+.icon-btn {
+  display: flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; border-radius: var(--radius-md);
+  border: 1px solid var(--border); background: none;
+  color: var(--text-secondary); cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+.icon-btn:hover { background: var(--bg-muted); border-color: var(--border-md); }
+.icon-btn.active { background: var(--blue-50); border-color: var(--blue-100); color: var(--blue-600); }
+.icon-btn .ti { font-size: 16px; }
+
+/* ── Badge ── */
+.badge {
+  display: inline-flex; align-items: center;
+  padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 500;
+}
+.badge-gray   { background: var(--bg-muted); color: var(--text-secondary); }
+.badge-blue   { background: var(--blue-50);  color: var(--blue-600); }
+.badge-teal   { background: var(--teal-50);  color: var(--teal-600); }
+.badge-purple { background: var(--purple-50);color: var(--purple-600); }
+.badge-amber  { background: var(--amber-50); color: var(--amber-600); }
+.badge-coral  { background: var(--coral-50); color: var(--coral-600); }
+.badge-green  { background: var(--green-50); color: var(--green-600); }
+.badge-red    { background: var(--red-50);   color: var(--red-600); }
+
+/* ── Toast ── */
+.toast {
+  position: fixed; bottom: 1.5rem; right: 1.5rem;
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 16px; border-radius: var(--radius-md);
+  background: var(--bg-surface); border: 1px solid var(--border-md);
+  box-shadow: var(--shadow-md); font-size: 13px; font-weight: 500;
+  z-index: 9999; animation: slideUp 0.2s ease;
+}
+.toast .ti { font-size: 16px; }
+.toast-success .ti { color: var(--green-600); }
+.toast-error .ti { color: var(--red-600); }
+
+@keyframes slideUp {
+  from { transform: translateY(12px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+/* ── Empty state ── */
+.empty-state {
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; padding: 4rem 1rem; text-align: center;
+  color: var(--text-secondary);
+}
+.empty-state .ti { font-size: 44px; color: var(--text-tertiary); margin-bottom: 1rem; }
+.empty-title { font-size: 15px; font-weight: 500; color: var(--text-primary); margin-bottom: 4px; }
+.empty-sub { font-size: 13px; }
+
+/* ── Section header ── */
+.section-header {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 1rem;
+}
+.section-title { font-size: 13px; font-weight: 500; color: var(--text-secondary); }
+.section-count {
+  background: var(--bg-muted); color: var(--text-tertiary);
+  font-size: 11px; padding: 1px 7px; border-radius: 10px;
+}
+
+/* ── Toggle ── */
+.toggle {
+  position: relative; display: inline-block;
+  width: 40px; height: 22px; cursor: pointer; flex-shrink: 0;
+}
+.toggle input { opacity: 0; width: 0; height: 0; position: absolute; }
+.toggle-track {
+  position: absolute; inset: 0; background: var(--border-md);
+  border-radius: 11px; transition: background 0.2s;
+}
+.toggle input:checked ~ .toggle-track { background: var(--blue-600); }
+.toggle-thumb {
+  position: absolute; width: 16px; height: 16px;
+  background: #fff; border-radius: 50%; top: 3px; left: 3px;
+  transition: left 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+.toggle input:checked ~ .toggle-thumb { left: 21px; }
+
+/* ── Card ── */
+.card {
+  background: var(--bg-surface); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 1rem 1.25rem;
+}
+.card-clickable { cursor: pointer; transition: border-color 0.15s, box-shadow 0.15s; }
+.card-clickable:hover { border-color: var(--border-md); box-shadow: var(--shadow-sm); }
+
+/* ── Spinner keyframes ── */
+@keyframes spin { to { transform: rotate(360deg); } }

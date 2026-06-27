@@ -1,0 +1,83 @@
+.app-shell {
+  display: flex; min-height: 100vh; height: 100%;
+}
+
+/* ── Main area ── */
+.app-main {
+  flex: 1; display: flex; flex-direction: column;
+  min-width: 0; overflow-x: hidden;
+}
+
+/* ── Topbar ── */
+.topbar {
+  height: var(--topbar-h); padding: 0 1.25rem;
+  background: var(--bg-surface); border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 12px;
+  position: sticky; top: 0; z-index: 50; flex-shrink: 0;
+}
+
+.hamburger {
+  display: none; background: none; border: none;
+  cursor: pointer; color: var(--text-secondary);
+  padding: 4px; border-radius: var(--radius-sm);
+}
+.hamburger .ti { font-size: 20px; }
+.hamburger:hover { background: var(--bg-muted); }
+
+.topbar-title { font-size: 15px; font-weight: 600; flex: 1; }
+
+.topbar-right {
+  display: flex; align-items: center; gap: 8px;
+}
+
+.topbar-syncing {
+  display: flex; align-items: center; gap: 5px;
+  font-size: 12px; color: var(--text-tertiary);
+}
+
+.topbar-error {
+  display: flex; align-items: center; gap: 4px;
+  font-size: 12px; color: var(--red-600);
+}
+.topbar-error .ti { font-size: 14px; }
+
+.spinning i { animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Content ── */
+.app-content {
+  flex: 1; padding: 1.5rem;
+  overflow-y: auto;
+}
+
+/* ── Mobile overlay ── */
+.sidebar-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,0.4); z-index: 199;
+}
+
+/* ── Loading splash ── */
+.loading-splash {
+  min-height: 100vh; display: flex;
+  align-items: center; justify-content: center;
+  background: var(--bg);
+}
+.splash-logo {
+  width: 56px; height: 56px; background: var(--blue-50);
+  border-radius: var(--radius-lg);
+  display: flex; align-items: center; justify-content: center;
+  animation: pulse 1s ease-in-out infinite;
+}
+.splash-logo .ti { font-size: 28px; color: var(--blue-600); }
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(0.95); }
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+  .sidebar-overlay { display: block; }
+  .app-content { padding: 1rem; }
+  .topbar { padding: 0 1rem; }
+}
